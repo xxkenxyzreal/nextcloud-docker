@@ -1,0 +1,16 @@
+---
+version: "2.1"
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /srv/dev-disk-by-id-usb-JMicron_Tech_W3TEMQSE-0-0-part1/yppa-500gb/nextcloud:/config  #UBAH DI DISK KALIAN YANG SUDAH KALIAN MOUNT !INI BUAT FOLDER BARU DI DISK NAS KALIAN DENAN FOLDER NAS 
+      - /srv/dev-disk-by-id-usb-JMicron_Tech_W3TEMQSE-0-0-part1/yppa-500gb:/data  #UBAH DI DISK DATA KALIAN YAMG MAU KALIAN BUAT STORAGE NASNYA 
+    ports:
+      - 8080:80
+    restart: unless-stopped
